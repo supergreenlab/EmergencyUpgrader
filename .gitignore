@@ -1,0 +1,10 @@
+tmp
+bin/liveserver
+air_errors.log
+tests/node_modules
+cam.jpg
+/assets/plume.otf
+/static/
+/config/
+/storage/
+/bin/
