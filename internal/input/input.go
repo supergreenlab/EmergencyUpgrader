@@ -23,6 +23,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"regexp"
 	"time"
 
 	"github.com/SuperGreenLab/EmergencyUpgrader/internal/controller"
@@ -47,10 +48,10 @@ func input() {
 	ip, err := reader.ReadString('\n')
 	ffs(err)
 	fmt.Printf(ip)
-	if ip == "\n" {
+	if ip == "\n" || ip == "\r\n" {
 		ip = "192.168.4.1"
 	} else {
-		ip = ip[0 : len(ip)-1]
+		ip = regexp.MustCompile("(\r|\n)*").ReplaceAllString(ip, "")
 	}
 	fmt.Printf("Using controller with IP %s\n", ip)
 
